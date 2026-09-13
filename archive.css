@@ -1,0 +1,456 @@
+/* =====================================================
+   ARCHIVE
+   ===================================================== */
+
+.archive-page {
+    padding:
+        105px
+        30px
+        100px;
+}
+
+
+/* =====================================================
+   TITLE
+   ===================================================== */
+
+.archive-title {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: baseline;
+
+    border-top: 1px solid #111;
+
+    padding-top: 9px;
+
+    margin-bottom: 28px;
+
+    font-size: 11px;
+
+    letter-spacing: 0.02em;
+}
+
+.archive-title::after {
+    content: none;
+}
+
+
+/* =====================================================
+   MASONRY
+   ===================================================== */
+
+/*
+   НЕ GRID.
+
+   Именно columns создают Pinterest-подобную
+   masonry-сетку:
+   одинаковая ширина,
+   естественная высота,
+   без пустых ячеек.
+*/
+
+.archive-grid {
+    column-count: 4;
+
+    column-gap: 14px;
+}
+
+
+/* =====================================================
+   ITEMS
+   ===================================================== */
+
+.archive-item {
+    break-inside: avoid;
+
+    margin:
+        0
+        0
+        14px;
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    border-radius: 9px;
+
+    opacity: 0;
+
+    transform:
+        translateY(32px);
+
+    animation:
+        archiveReveal
+        0.7s
+        cubic-bezier(
+            0.2,
+            0.7,
+            0.2,
+            1
+        )
+        forwards;
+}
+
+
+.archive-item:nth-child(2) {
+    animation-delay: 0.04s;
+}
+
+.archive-item:nth-child(3) {
+    animation-delay: 0.08s;
+}
+
+.archive-item:nth-child(4) {
+    animation-delay: 0.12s;
+}
+
+.archive-item:nth-child(5) {
+    animation-delay: 0.16s;
+}
+
+.archive-item:nth-child(6) {
+    animation-delay: 0.20s;
+}
+
+.archive-item:nth-child(7) {
+    animation-delay: 0.24s;
+}
+
+.archive-item:nth-child(8) {
+    animation-delay: 0.28s;
+}
+
+.archive-item:nth-child(9) {
+    animation-delay: 0.32s;
+}
+
+.archive-item:nth-child(10) {
+    animation-delay: 0.36s;
+}
+
+
+@keyframes archiveReveal {
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* =====================================================
+   IMAGE
+   ===================================================== */
+
+.archive-item img {
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+
+    border-radius: 9px;
+
+    transition:
+        transform 0.55s
+        cubic-bezier(
+            0.2,
+            0.7,
+            0.2,
+            1
+        );
+}
+
+
+.archive-item:hover img {
+    transform:
+        scale(1.025);
+}
+
+
+/* =====================================================
+   LIGHTBOX
+   ===================================================== */
+
+.lightbox {
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(
+            0,
+            0,
+            0,
+            0.94
+        );
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding:
+        50px
+        90px;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+
+    z-index: 100;
+}
+
+
+.lightbox.active {
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+.lightbox-image {
+    max-width: 88vw;
+
+    max-height: 88vh;
+
+    width: auto;
+
+    height: auto;
+
+    object-fit: contain;
+
+    border-radius: 6px;
+
+    user-select: none;
+}
+
+
+/* =====================================================
+   ARROWS
+   ===================================================== */
+
+.lightbox-arrow {
+    position: fixed;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    width: 55px;
+
+    height: 55px;
+
+    border: none;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.08
+        );
+
+    color: white;
+
+    font-size: 24px;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    cursor: pointer;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.lightbox-arrow:hover {
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.18
+        );
+
+    transform:
+        translateY(-50%)
+        scale(1.05);
+
+}
+
+
+.lightbox-prev {
+    left: 25px;
+}
+
+.lightbox-next {
+    right: 25px;
+}
+
+
+/* =====================================================
+   CLOSE
+   ===================================================== */
+
+.lightbox-close {
+    position: fixed;
+
+    top: 22px;
+
+    right: 28px;
+
+    width: 45px;
+
+    height: 45px;
+
+    border: none;
+
+    background: none;
+
+    color: white;
+
+    font-size: 35px;
+
+    font-weight: 300;
+
+    cursor: pointer;
+
+    line-height: 1;
+
+    opacity: 0.8;
+}
+
+
+.lightbox-close:hover {
+    opacity: 1;
+}
+
+
+/* =====================================================
+   TABLET
+   ===================================================== */
+
+@media (max-width: 1100px) {
+
+    .archive-grid {
+        column-count: 3;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 700px) {
+
+    .archive-page {
+        padding:
+            90px
+            15px
+            70px;
+    }
+
+
+    .archive-grid {
+        column-count: 2;
+
+        column-gap: 9px;
+    }
+
+
+    .archive-item {
+        margin-bottom: 9px;
+
+        border-radius: 7px;
+    }
+
+
+    .archive-item img {
+        border-radius: 7px;
+    }
+
+
+    .lightbox {
+        padding:
+            30px
+            15px;
+    }
+
+
+    .lightbox-image {
+        max-width: 94vw;
+
+        max-height: 82vh;
+    }
+
+
+    .lightbox-arrow {
+        width: 42px;
+
+        height: 42px;
+
+        font-size: 19px;
+    }
+
+
+    .lightbox-prev {
+        left: 10px;
+    }
+
+
+    .lightbox-next {
+        right: 10px;
+    }
+
+
+    .lightbox-close {
+        top: 15px;
+
+        right: 15px;
+
+        font-size: 30px;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL PHONE
+   ===================================================== */
+
+@media (max-width: 430px) {
+
+    .archive-grid {
+        column-count: 1;
+    }
+
+}

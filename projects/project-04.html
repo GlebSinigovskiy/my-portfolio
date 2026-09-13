@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Project 04 — Gleb Sinigovskiy</title>
+
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <link rel="stylesheet" href="../project-04.css">
+</head>
+
+<body>
+
+<div class="page-transition" aria-hidden="true">
+    <span>BREW.OS</span>
+</div>
+
+<header class="project-header">
+    <a href="../index.html" class="back">← BACK</a>
+    <span>GLEB SINIGOVSKY</span>
+    <span class="language-switcher-placeholder">2026</span>
+</header>
+
+<main>
+
+    <section class="project-cover">
+        <img src="../images/project-04-cover.jpg" alt="Project 04">
+    </section>
+
+    <section class="project-cover-info">
+        <h1 class="project-cover-title">BREW.OS</h1>
+        <span class="project-cover-number">04 / 04</span>
+    </section>
+
+    <section class="project-description">
+        <div class="description-label">
+            <span>ABOUT THE PROJECT</span>
+        </div>
+
+        <div class="description-text">
+            <p>BREW.OS is a coffee shop imagined as a digital operating system, blending café culture with the visual language of software and interfaces. The identity uses a blue-and-white palette, bitmap illustrations, soft gradients, and coffee-related slogans styled like lines of code, creating a playful, contemporary system-like aesthetic.</p>
+        </div>
+    </section>
+
+    <section class="project-image">
+        <img src="../images/project-04-01.jpg" alt="Project 04 detail 01">
+    </section>
+
+    <section class="project-image">
+        <img src="../images/project-04-02.jpg" alt="Project 04 detail 02">
+    </section>
+
+    <section class="project-image">
+        <img src="../images/project-04-03.jpg" alt="Project 04 detail 03">
+    </section>
+
+    <section class="project-image">
+        <img src="../images/project-04-04.jpg" alt="Project 04 detail 04">
+    </section>
+
+    <section class="project-image">
+        <img src="../images/project-04-05.jpg" alt="Project 04 detail 05">
+    </section>
+
+    <section class="project-image">
+        <img src="../images/project-04-06.jpg" alt="Project 04 detail 06">
+    </section>
+
+    <section class="project-image">
+        <img src="../images/project-04-07.jpg" alt="Project 04 detail 07">
+    </section>
+
+    <section class="project-image">
+        <img src="../images/project-04-08.jpg" alt="Project 04 detail 08">
+    </section>
+
+    <section class="project-image project-video">
+        <video autoplay muted playsinline loop preload="auto">
+            <source src="../images/project-04-animation.mp4" type="video/mp4">
+        </video>
+    </section>
+
+    <section class="project-meta-bottom">
+        <div>
+            <span>TYPE</span>
+            <p>Branding</p>
+            <p>Identity</p>
+        </div>
+
+        <div>
+            <span>YEAR</span>
+            <p>2026</p>
+        </div>
+
+        <div>
+            <span>ROLE</span>
+            <p>Art Direction<br>Graphic Design</p>
+        </div>
+    </section>
+
+    <section class="next-project">
+        <a class="next-project-link" href="project-01.html">
+            <span class="next-project-link-text">NEXT PROJECT</span>
+            <span class="next-project-link-arrow">→</span>
+            <span class="next-project-preview">
+                <img src="../images/project-01-cover.jpg" alt="">
+            </span>
+        </a>
+    </section>
+
+</main>
+
+<footer>
+    <span>© 2026 GLEB SINIGOVSKY</span>
+</footer>
+
+<script>
+const transition = document.querySelector(".page-transition");
+
+function go(url, label) {
+    transition.querySelector("span").textContent = label;
+    document.body.classList.add("transition-in");
+
+    setTimeout(() => {
+        location.href = url;
+    }, 700);
+}
+
+document.querySelectorAll('a[href$=".html"]').forEach(a => {
+    a.addEventListener("click", event => {
+        const href = a.getAttribute("href");
+
+        if (!href || a.target === "_blank") {
+            return;
+        }
+
+        event.preventDefault();
+
+        let label = "WORK";
+
+        if (href.includes("project-")) {
+            const match = href.match(/project-(\d+)/);
+            label = match ? "PROJECT " + match[1] : "PROJECT";
+        }
+
+        go(href, label);
+    });
+});
+
+window.addEventListener("pageshow", () => {
+    requestAnimationFrame(() => {
+        setTimeout(() => {
+            document.body.classList.add("transition-out");
+        }, 40);
+    });
+});
+</script>
+
+<script src="../language.js"></script>
+
+</body>
+</html>
